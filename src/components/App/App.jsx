@@ -25,7 +25,7 @@ function App() {
       <TitelPhone>Phonebook</TitelPhone>
       <Form />
       <TitelContact>Contacts</TitelContact>
-      {isLoading && !error && <b>Reqest in progress...</b>}
+      {isLoading && !error && <b>Reqest in progress....</b>}
       <Filter />
       <Contacts />
     </AppSection>
