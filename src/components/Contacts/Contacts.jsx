@@ -1,19 +1,23 @@
 import { Button } from '../../components/Form/Form.styled';
-import { ContactName, Contactlist, ContactItem } from './Contact.styled';
-import { TitelContact } from '../App/App.styled';
-import { selectContacts, selectFilter, selectIsLoading } from 'redux/selectors';
+import {
+  ContactName,
+  Contactlist,
+  ContactItem,
+  TitelContact,
+} from './Contact.styled';
+import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from 'redux/operations';
+import { deleteContact } from 'redux/contacts/operations';
 
-const Contacts = () => {
-  const contacts = useSelector(selectContacts);
+export const Contacts = () => {
+  const { items, isLoading, error } = useSelector(selectContacts);
   const filter = useSelector(selectFilter);
-  const isLoading = useSelector(selectIsLoading);
+
   const dispatch = useDispatch();
   const onRemoveContact = contactId => dispatch(deleteContact(contactId));
 
   const getVisibleContacts = () => {
-    return contacts.filter(contact =>
+    return items.filter(contact =>
       contact.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
@@ -22,6 +26,7 @@ const Contacts = () => {
     <>
       {getVisibleContacts().length > 0 && !isLoading ? (
         <Contactlist>
+          {error && <b>{error}</b>}
           {getVisibleContacts().map((contact, id) => (
             <ContactItem key={id}>
               <ContactName>{contact.name + ' : ' + contact.number}</ContactName>
@@ -42,5 +47,3 @@ const Contacts = () => {
     </>
   );
 };
-
-export default Contacts;

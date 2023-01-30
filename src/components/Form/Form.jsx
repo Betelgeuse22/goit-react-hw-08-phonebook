@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { nanoid } from 'nanoid';
 import toast from 'react-hot-toast';
-import { addContact } from 'redux/operations';
-import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/contacts/operations';
+import { selectContacts } from 'redux/contacts/selectors';
 import { FormStyle, Input, Label, Button } from './Form.styled';
 
 export function Form() {
@@ -37,7 +37,7 @@ export function Form() {
     const id = nanoid();
     const name = e.target.name.value;
     const number = e.target.number.value;
-    const contactsLists = [...contacts];
+    const contactsLists = [...contacts.items];
 
     if (
       contactsLists.find(
@@ -89,5 +89,3 @@ export function Form() {
     </>
   );
 }
-
-export default Form;
