@@ -1,12 +1,14 @@
 import { useDispatch } from 'react-redux';
-import { ErrorMessage, Field, Formik } from 'formik';
+import { ErrorMessage, Formik } from 'formik';
 import * as Yup from 'yup';
 import { logIn } from 'redux/auth/operations';
 import {
   ErrorMessageStyled,
   LoginFormStyled,
   LoginLabel,
+  InputLogin,
 } from './LoginForm.styled';
+import { Button } from 'components/Form/Form.styled';
 
 const initValues = {
   email: '',
@@ -40,19 +42,19 @@ export const LoginForm = () => {
       <LoginFormStyled autoComplete="off">
         <LoginLabel>
           Email
-          <Field type="email" name="email" />
+          <InputLogin type="email" name="email" />
           <ErrorMessage name="email">
             {msg => <ErrorMessageStyled>{msg}</ErrorMessageStyled>}
           </ErrorMessage>
         </LoginLabel>
         <LoginLabel>
           Password
-          <Field type="password" name="password" />
+          <InputLogin type="password" name="password" />
           <ErrorMessage name="password">
             {msg => <ErrorMessageStyled>{msg}</ErrorMessageStyled>}
           </ErrorMessage>
         </LoginLabel>
-        <button type="submit">Log In</button>
+        <Button type="submit">Log In</Button>
       </LoginFormStyled>
     </Formik>
   );

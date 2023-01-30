@@ -3,8 +3,14 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { register } from 'redux/auth/operations';
-import { BtnStyled } from 'components/common/BtnStyled';
-import { Form, IconPassword, Label } from './RegisterForm.styled';
+import {
+  Form,
+  IconPassword,
+  Label,
+  InputRegister,
+} from './RegisterForm.styled';
+import { Button } from 'components/Form/Form.styled';
+
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -75,11 +81,16 @@ export const RegisterForm = () => {
     <Form onSubmit={handleSubmit} autoComplete="off">
       <Label>
         Username
-        <input type="text" name="name" value={name} onChange={handleChange} />
+        <InputRegister
+          type="text"
+          name="name"
+          value={name}
+          onChange={handleChange}
+        />
       </Label>
       <Label>
         Email
-        <input
+        <InputRegister
           type="email"
           name="email"
           value={email}
@@ -88,7 +99,7 @@ export const RegisterForm = () => {
       </Label>
       <Label>
         Password
-        <input
+        <InputRegister
           type={type}
           name="password"
           value={password}
@@ -98,14 +109,14 @@ export const RegisterForm = () => {
       </Label>
       <Label>
         Confirm password
-        <input
+        <InputRegister
           type="password"
           name="confirmPassword"
           value={confirmPassword}
           onChange={handleChange}
         />
       </Label>
-      <BtnStyled type="submit">Register</BtnStyled>
+      <Button type="submit">Register</Button>
     </Form>
   );
 };

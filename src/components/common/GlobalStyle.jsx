@@ -18,6 +18,6 @@ code {
     monospace;
 }
 
-a {text-decoration: none;}
-
+a {
+  text-decoration: none;}
 `;
