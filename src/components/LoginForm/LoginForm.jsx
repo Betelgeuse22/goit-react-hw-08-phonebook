@@ -23,14 +23,13 @@ const shema = Yup.object().shape({
 export const LoginForm = () => {
   const dispatch = useDispatch();
 
-  const handleSubmit = ({ email, password }, { resetForm }) => {
+  const handleSubmit = ({ email, password }) => {
     dispatch(
       logIn({
         email,
         password,
       })
     );
-    resetForm();
   };
 
   return (

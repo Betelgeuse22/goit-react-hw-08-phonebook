@@ -11,7 +11,6 @@ import {
 } from './RegisterForm.styled';
 import { Button } from 'components/Form/Form.styled';
 
-
 export const RegisterForm = () => {
   const dispatch = useDispatch();
   const [toggleIcon, setToggleIcon] = useState(<AiOutlineEyeInvisible />);
@@ -65,7 +64,6 @@ export const RegisterForm = () => {
     }
     if (password !== confirmPassword) {
       toast('Wrong confirmation of password');
-      setConfirmPassword('');
       return;
     }
     dispatch(
@@ -110,7 +108,7 @@ export const RegisterForm = () => {
       <Label>
         Confirm password
         <InputRegister
-          type="password"
+          type={type}
           name="confirmPassword"
           value={confirmPassword}
           onChange={handleChange}
