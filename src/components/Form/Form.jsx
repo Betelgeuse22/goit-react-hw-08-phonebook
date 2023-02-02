@@ -4,7 +4,8 @@ import { nanoid } from 'nanoid';
 import toast from 'react-hot-toast';
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
-import { FormStyle, Input, Label, Button } from './Form.styled';
+import { FormStyle, Label } from './Form.styled';
+import { TextField, Button } from '@mui/material';
 
 export function Form() {
   const contacts = useSelector(selectContacts);
@@ -59,8 +60,9 @@ export function Form() {
     <>
       <FormStyle onSubmit={handleSubmit}>
         <Label htmlFor={nameId}>
-          Name:
-          <Input
+          <TextField
+            label="Name"
+            variant="standard"
             type="text"
             id={nameId}
             name="name"
@@ -72,8 +74,9 @@ export function Form() {
           />
         </Label>
         <Label htmlFor={numberId}>
-          Number:
-          <Input
+          <TextField
+            label="Number"
+            variant="standard"
             type="tel"
             id={numberId}
             name="number"
@@ -84,7 +87,9 @@ export function Form() {
             onChange={handleChangeNumber}
           />
         </Label>
-        <Button type="submit">Add Contact</Button>
+        <Button type="submit" variant="contained">
+          Add Contact
+        </Button>
       </FormStyle>
     </>
   );

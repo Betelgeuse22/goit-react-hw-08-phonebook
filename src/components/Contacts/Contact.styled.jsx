@@ -18,6 +18,7 @@ export const ContactItem = styled.li`
   align-items: center;
   flex-direction: row;
   margin-bottom: 12px;
+  justify-content: space-between;
 `;
 
 export const AppSection = styled.div`

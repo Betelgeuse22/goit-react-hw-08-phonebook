@@ -1,4 +1,3 @@
-import { Button } from '../../components/Form/Form.styled';
 import {
   ContactName,
   Contactlist,
@@ -8,6 +7,7 @@ import {
 import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
+import { Button } from '@mui/material';
 
 export const Contacts = () => {
   const { items, isLoading, error } = useSelector(selectContacts);
@@ -33,6 +33,7 @@ export const Contacts = () => {
               {
                 <Button
                   type="button"
+                  variant="contained"
                   onClick={() => onRemoveContact(contact.id)}
                 >
                   Delete

@@ -27,6 +27,9 @@ export const register = createAsyncThunk(
       setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
+      if (error.request.status === 400) {
+        toast('Incorrect data');
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }

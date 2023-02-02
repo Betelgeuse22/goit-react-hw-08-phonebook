@@ -15,10 +15,10 @@ export const Input = styled.input`
 `;
 
 export const Label = styled.label`
-  font-style: italic;
   font-size: 16px;
-  text-decoration: dotted;
-  color: grey;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
 `;
 
 export const Button = styled.button`
