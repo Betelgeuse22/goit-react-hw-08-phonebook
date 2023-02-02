@@ -9,7 +9,6 @@ import {
   TitelPhone,
   TitelContact,
 } from '../components/Contacts/Contact.styled';
-import { GlobalStyle } from '../components/common/GlobalStyle';
 import { fetchContacts } from 'redux/contacts/operations';
 
 export default function ContactsPage() {
@@ -21,7 +20,6 @@ export default function ContactsPage() {
 
   return (
     <AppSection>
-      <GlobalStyle />
       <Toaster />
       <TitelPhone>Phonebook</TitelPhone>
       <Form />

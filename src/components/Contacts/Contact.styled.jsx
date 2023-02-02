@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const ContactName = styled.p`
-  font-style: italic;
   color: gray;
   margin-right: 24px;
 `;
