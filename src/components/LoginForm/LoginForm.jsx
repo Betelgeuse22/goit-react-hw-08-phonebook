@@ -39,6 +39,7 @@ export const LoginForm = () => {
           type="email"
           required
           onChange={formik.handleChange}
+          color="warning"
           value={formik.values.email}
           error={formik.touched.email && Boolean(formik.errors.email)}
           helperText={formik.touched.email && formik.errors.email}
@@ -52,12 +53,13 @@ export const LoginForm = () => {
           type="password"
           required
           onChange={formik.handleChange}
+          color="warning"
           value={formik.values.password}
           error={formik.touched.password && Boolean(formik.errors.password)}
           helperText={formik.touched.password && formik.errors.password}
         />
       </LoginLabel>
-      <Button type="submit" variant="contained">
+      <Button type="submit" variant="contained" color="warning">
         Submit
       </Button>
     </LoginFormStyled>

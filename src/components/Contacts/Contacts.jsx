@@ -1,13 +1,9 @@
-import {
-  ContactName,
-  Contactlist,
-  ContactItem,
-  TitelContact,
-} from './Contact.styled';
+import { ContactName, TitelContact } from './Contact.styled';
 import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/contacts/operations';
-import { Button } from '@mui/material';
+import { Grid, List, ListItem, IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export const Contacts = () => {
   const { items, isLoading, error } = useSelector(selectContacts);
@@ -25,23 +21,27 @@ export const Contacts = () => {
   return (
     <>
       {getVisibleContacts().length > 0 && !isLoading ? (
-        <Contactlist>
-          {error && <b>{error}</b>}
-          {getVisibleContacts().map((contact, id) => (
-            <ContactItem key={id}>
-              <ContactName>{contact.name + ' : ' + contact.number}</ContactName>
-              {
-                <Button
-                  type="button"
-                  variant="contained"
-                  onClick={() => onRemoveContact(contact.id)}
-                >
-                  Delete
-                </Button>
-              }
-            </ContactItem>
-          ))}
-        </Contactlist>
+        <Grid>
+          <List>
+            {error && <b>{error}</b>}
+            {getVisibleContacts().map((contact, id) => (
+              <ListItem key={id}>
+                <ContactName>
+                  {contact.name + ' : ' + contact.number}
+                </ContactName>
+                {
+                  <IconButton
+                    edge="end"
+                    aria-label="delete"
+                    onClick={() => onRemoveContact(contact.id)}
+                  >
+                    <DeleteIcon />
+                  </IconButton>
+                }
+              </ListItem>
+            ))}
+          </List>
+        </Grid>
       ) : (
         <TitelContact>It's empty here</TitelContact>
       )}

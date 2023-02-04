@@ -1,16 +1,20 @@
 import { StyledLink } from 'components/common/StyledLink';
 import { useAuth } from 'hooks';
-import { HomeStyledLink, Nav, PhoneIcon } from './Navigation.styled';
+import {
+  // HomeStyledLink,
+  Nav,
+} from './Navigation.styled';
+import ContactPhoneIcon from '@mui/icons-material/ContactPhone';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
 
   return (
     <Nav>
-      <HomeStyledLink to="/">
-        <PhoneIcon />
+      <ContactPhoneIcon sx={{ mr: 2 }} color="warning" />
+      <StyledLink style={{ marginRight: '20px' }} to="/">
         Home
-      </HomeStyledLink>
+      </StyledLink>
       {isLoggedIn && <StyledLink to="/contacts">Contacts</StyledLink>}
     </Nav>
   );

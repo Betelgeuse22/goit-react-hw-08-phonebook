@@ -19,7 +19,7 @@ export default function ContactsPage() {
   }, [dispatch]);
 
   return (
-    <AppSection>
+    <AppSection elevation={12}>
       <Toaster />
       <TitelPhone>Phonebook</TitelPhone>
       <Form />

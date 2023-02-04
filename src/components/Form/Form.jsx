@@ -71,6 +71,7 @@ export function Form() {
             required
             value={name}
             onChange={handleChangeName}
+            color="warning"
           />
         </Label>
         <Label htmlFor={numberId}>
@@ -85,9 +86,10 @@ export function Form() {
             required
             value={number}
             onChange={handleChangeNumber}
+            color="warning"
           />
         </Label>
-        <Button type="submit" variant="contained">
+        <Button type="submit" variant="contained" color="warning">
           Add Contact
         </Button>
       </FormStyle>

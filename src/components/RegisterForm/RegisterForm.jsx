@@ -72,6 +72,7 @@ export const RegisterForm = () => {
           name="name"
           value={name}
           onChange={handleChange}
+          color="warning"
         />
       </Label>
       <Label>
@@ -83,6 +84,7 @@ export const RegisterForm = () => {
           name="email"
           value={email}
           onChange={handleChange}
+          color="warning"
         />
       </Label>
       <Label>
@@ -94,9 +96,14 @@ export const RegisterForm = () => {
           name="password"
           value={password}
           onChange={handleChange}
+          color="warning"
         />
         <IconPassword onClick={handleClickShowPassword}>
-          {showPassword ? <VisibilityOff /> : <Visibility />}
+          {showPassword ? (
+            <VisibilityOff color="warning" />
+          ) : (
+            <Visibility color="warning" />
+          )}
         </IconPassword>
       </Label>
       <Label>
@@ -108,9 +115,10 @@ export const RegisterForm = () => {
           name="confirmPassword"
           value={confirmPassword}
           onChange={handleChange}
+          color="warning"
         />
       </Label>
-      <Button type="submit" variant="contained">
+      <Button type="submit" variant="contained" color="warning">
         Register
       </Button>
     </Form>

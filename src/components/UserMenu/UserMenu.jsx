@@ -1,31 +1,40 @@
 import { useDispatch } from 'react-redux';
-import { BsFillPersonCheckFill } from 'react-icons/bs';
 import { logOut } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
-import {
-  IconButton,
-  UserName,
-  UserNavWrap,
-  UserNavWelcomeText,
-  IconSvg,
-} from './UserMenu.styled';
+import { UserNavWrap, UserNavWelcomeText } from './UserMenu.styled';
+import { Avatar, IconButton } from '@mui/material';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
 
+  function stringAvatar(name) {
+    return {
+      children: `${user.name.split(' ')[0][0]}${user.name.split(' ')[0][1]}`,
+    };
+  }
+
   return (
     <UserNavWrap>
-      <BsFillPersonCheckFill fill="#000" />
       <UserNavWelcomeText>
-        Welcome, <UserName>{user.name}</UserName>
+        <p>Welcome</p>
+        <Avatar
+          {...stringAvatar(user.name)}
+          sx={{
+            bgcolor: '#ed6c02',
+            width: 35,
+            height: 35,
+            ml: 2,
+          }}
+        />
       </UserNavWelcomeText>
       <IconButton
-        type="button"
+        edge="end"
         aria-label="logout"
         onClick={() => dispatch(logOut())}
       >
-        <IconSvg />
+        <LogoutIcon />
       </IconButton>
     </UserNavWrap>
   );

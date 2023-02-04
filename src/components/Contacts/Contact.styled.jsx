@@ -1,44 +1,27 @@
 import styled from 'styled-components';
+import Paper from '@mui/material/Paper';
 
 export const ContactName = styled.p`
-  color: gray;
-  margin-right: 24px;
+  color: #ed6c02;
+  margin-right: auto;
 `;
 
-export const Contactlist = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-`;
-
-export const ContactItem = styled.li`
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  margin-bottom: 12px;
-  justify-content: space-between;
-`;
-
-export const AppSection = styled.div`
+export const AppSection = styled(Paper)`
   padding: 16px;
   margin: 50px auto;
   width: 500px;
-  background-color: #c3f4bb;
-  outline: 2px solid green;
   border-radius: 25px;
+  outline: solid 1px #ed6c02;
 `;
 
 export const TitelPhone = styled.h1`
-  font-style: italic;
   font-size: 50px;
   text-align: center;
-  color: gray;
+  color: #ed6c02;
 `;
 
 export const TitelContact = styled.h2`
-  font-style: italic;
   font-size: 30px;
   text-align: center;
-  color: gray;
+  color: #ed6c02;
 `;
