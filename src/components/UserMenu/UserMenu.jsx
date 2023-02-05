@@ -34,7 +34,7 @@ export const UserMenu = () => {
         aria-label="logout"
         onClick={() => dispatch(logOut())}
       >
-        <LogoutIcon />
+        <LogoutIcon color="warning" />
       </IconButton>
     </UserNavWrap>
   );

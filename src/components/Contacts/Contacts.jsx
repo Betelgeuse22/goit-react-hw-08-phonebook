@@ -35,7 +35,7 @@ export const Contacts = () => {
                     aria-label="delete"
                     onClick={() => onRemoveContact(contact.id)}
                   >
-                    <DeleteIcon />
+                    <DeleteIcon color="warning" />
                   </IconButton>
                 }
               </ListItem>
